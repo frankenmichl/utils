@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
 RESULTS="Repository:Branch:Status"
 for i in `find . -name ".git"`;
 do
@@ -8,9 +11,9 @@ do
 	BRANCH=`git branch | grep "^*" | cut -d " " -f 2`
 	STATUS=""
 	if [[ -z $(git status -s) ]]; then
-		STATUS="clean"
+		STATUS="${GREEN}clean${NC}"
 	else
-		STATUS="dirty"
+		STATUS="${RED}dirty${NC}"
 	fi
 	RESULTS="$RESULTS\n$REPO:$BRANCH:$STATUS"
 	popd > /dev/null
