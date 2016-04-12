@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-RESULTS=""
+RESULTS="Repository:Branch:Status"
 for i in `find . -name ".git"`;
 do
 	pushd . > /dev/null
